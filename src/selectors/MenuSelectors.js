@@ -1,3 +1,3 @@
-const getUser = state => state.user.user;
+const selectMenu = state => state.menuReducer.menu;
 
-export default getUser;
+export default selectMenu;

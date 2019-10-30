@@ -20,7 +20,6 @@ class UserController {
           mac : 'mac test'
         }
       });
-      console.log('user',result);
       return result.user;
     } catch (error) {
       return Promise.reject(error);

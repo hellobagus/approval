@@ -17,7 +17,6 @@ const client = axios.create({
 
 client.interceptors.response.use(
   response => {
-    console.log('response',response);
     return !response.data.Error 
       ? response.data 
       : Promise.reject(response.data.Pesan);
