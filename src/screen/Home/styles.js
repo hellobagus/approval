@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
   },
   bodyContent: {
     flex: 1,
-<<<<<<< HEAD
     alignItems: 'center',
     padding:30,
   },
@@ -225,13 +224,6 @@ itemBtn1: {
   width:50,
   justifyContent:'center'
 },
-=======
-    backgroundColor: '#F4F6F8',
-  },
-  homeHeader : {
-    marginHorizontal : 10
-  }
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
 });
 
 export default styles;

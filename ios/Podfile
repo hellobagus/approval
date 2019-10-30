@@ -31,10 +31,6 @@ target 'IFCAOPlus' do
   pod ‘ReactNativeLocalization’,
      :path => “../node_modules/react-native-localization”
      
-<<<<<<< HEAD
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-=======
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
 
   target 'IFCAOPlusTests' do
     inherit! :search_paths

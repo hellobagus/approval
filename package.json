@@ -29,6 +29,7 @@
     "react-navigation": "^3.11.0",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
@@ -57,10 +58,5 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "rnpm": {
-    "assets": [
-      "./assets/fonts/"
-    ]
   }
 }

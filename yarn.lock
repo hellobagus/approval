@@ -837,17 +837,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-<<<<<<< HEAD
 "@paraboly/react-native-card@^0.2.11":
   version "0.2.11"
   resolved "https://registry.yarnpkg.com/@paraboly/react-native-card/-/react-native-card-0.2.11.tgz#94ae29db29c877ac6622e98a90bd2842d235d1a7"
   integrity sha512-S4h66dgidRgp3Wwkav2+2Wn1qxFzqUDxqDN7NUwYXDL2Ez9oQHmV0J69TbKQ0rHB7h4jd3dEklJXtMgjRiI8JA==
-=======
-"@react-native-community/async-storage@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.6.1.tgz#19be07fc1d65c77bdeb20f46108ba12076aad1c5"
-  integrity sha512-1WA28xfdhG+unkTEk/lXnqI2izv6belo0CYw7UdvaeHm8TIYT6eTmIIdGR7oiCa2xSKEnaPQqRMH6h7gyLNbww==
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
 
 "@react-native-community/cli-platform-android@^2.0.1", "@react-native-community/cli-platform-android@^2.9.0":
   version "2.9.0"
@@ -1904,11 +1897,7 @@ color-support@^1.1.3:
   resolved "https://registry.yarnpkg.com/color-support/-/color-support-1.1.3.tgz#93834379a1cc9a0c61f82f52f0d04322251bd5a2"
   integrity sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==
 
-<<<<<<< HEAD
 color@^3.1.0, color@~3.1.2:
-=======
-color@^3.1.0:
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
@@ -3311,6 +3300,11 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
+
 handlebars@^4.1.2:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.2.0.tgz#57ce8d2175b9bbb3d8b3cf3e4217b1aec8ddcb2e"
@@ -3583,7 +3577,7 @@ inquirer@^6.4.1:
     strip-ansi "^5.1.0"
     through "^2.3.6"
 
-invariant@^2.2.2, invariant@^2.2.4:
+invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -4546,11 +4540,7 @@ lodash.throttle@^4.1.1:
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
 
-<<<<<<< HEAD
 lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
-=======
-lodash@^4.0.0, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0, lodash@^4.6.1:
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -5405,11 +5395,7 @@ open@^6.2.0:
   dependencies:
     is-wsl "^1.1.0"
 
-<<<<<<< HEAD
 opencollective-postinstall@^2.0.0, opencollective-postinstall@^2.0.2:
-=======
-opencollective-postinstall@^2.0.0:
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.2.tgz#5657f1bede69b6e33a45939b061eb53d3c6c3a89"
   integrity sha512-pVOEP16TrAO2/fjej1IdOyupJY8KDUM1CvsaScRbw6oddvpQoOfGk4ywha0HKKVAD6RkW4x6Q+tNBwhf3Bgpuw==
@@ -5909,7 +5895,6 @@ react-native-dotenv@^0.2.0:
   dependencies:
     babel-plugin-dotenv "0.1.1"
 
-<<<<<<< HEAD
 react-native-drawer@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz#08b9314184f48c724f1b467f8859797369798654"
@@ -5931,18 +5916,10 @@ react-native-elements@^1.2.6:
   integrity sha512-f0HRW41qb2x8MJUjR9b5FtRX9gnychtZ3P4O7AX3HV2pxx5c6pFqE+Q38mv8vMDU0QB9X+l/iz6bapbTd9HCvA==
   dependencies:
     "@types/react-native-vector-icons" "^6.4.4"
-=======
-react-native-elements@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-1.1.0.tgz#f99bcda4459a886f3ab4591c684c099d37aedf2b"
-  integrity sha512-n1eOL0kUdlH01zX7bn1p7qhYXn7kquqxYQ0oWlxoAck9t5Db/KeK5ViOsAk8seYSvAG6Pe7OxgzRFnMfFhng0Q==
-  dependencies:
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
     color "^3.1.0"
     deepmerge "^3.1.0"
     hoist-non-react-statics "^3.1.0"
     opencollective-postinstall "^2.0.0"
-<<<<<<< HEAD
     prop-types "^15.7.2"
     react-native-ratings "^6.3.0"
     react-native-status-bar-height "^2.2.0"
@@ -5951,20 +5928,11 @@ react-native-gesture-handler@^1.2.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.4.1.tgz#c38d9e57637b95e221722a79f2bafac62e3aeb21"
   integrity sha512-Ffcs+SbEbkGaal0CClYL+v7A9y4OA5G5lW01qrzjxaqASp5C8BfnWSKuqYKE00s6bLwE5L4xnlHkG0yIxAtbrQ==
-=======
-    prop-types "^15.5.8"
-    react-native-ratings "^6.3.0"
-    react-native-status-bar-height "^2.2.0"
-
-react-native-gesture-handler@~1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.3.0.tgz#d0386f565928ccc1849537f03f2e37fd5f6ad43f"
-  integrity sha512-ASRFIXBuKRvqlmwkWJhV8yP2dTpvcqVrLNpd7FKVBFHYWr6SAxjGyO9Ik8w1lAxDhMlRP2IcJ9p9eq5X2WWeLQ==
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
   dependencies:
+    hammerjs "^2.0.8"
     hoist-non-react-statics "^2.3.1"
-    invariant "^2.2.2"
-    prop-types "^15.5.10"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
 
 react-native-iphone-x-helper@^1.0.3:
   version "1.2.1"
@@ -5986,7 +5954,6 @@ react-native-localization@^2.1.1:
   dependencies:
     react-localization "^1.0.14"
 
-<<<<<<< HEAD
 react-native-material-ripple@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/react-native-material-ripple/-/react-native-material-ripple-0.9.1.tgz#db1ad9dd7cf97011e4cd8475ae2041ade0f891cb"
@@ -5995,15 +5962,9 @@ react-native-material-ripple@^0.9.1:
     prop-types "^15.5.10"
 
 react-native-ratings@^6.3.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.5.0.tgz#a1606ccba3c5b54eec8e6cfa4765a45cf0e4ab8d"
-  integrity sha512-YMcfQ7UQCmXGEc/WPlukHSHs5yvckTwjq5fTRk1FG8gaO7fZCNygEUGPuw4Dbvvp3IlsCUn0bOQd63RYsb7NDQ==
-=======
-react-native-ratings@^6.3.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-6.4.0.tgz#1923e445dbb4092eb880937ac4f7498b06815c3c"
   integrity sha512-QvRJiEzjXZa7OL1MhJzbc50yUaOzPgjU6vGpkfIpWvgOyrjjkoQQqQ7EFvkoQMSEoRLD33eKTT3huJolScFoHQ==
->>>>>>> 4bf7d7ee09032359deb717d309875925cdf14408
   dependencies:
     lodash "^4.17.4"
     prop-types "^15.5.10"
@@ -6244,6 +6205,11 @@ realpath-native@^1.1.0:
   integrity sha512-wlgPA6cCIIg9gKz0fgAPjnzh4yR/LnXovwuo9hvyGvx3h8nX4+/iLZplfUWasXpqD8BdnGnP5njOFjkUwPzvjA==
   dependencies:
     util.promisify "^1.0.0"
+
+redux-devtools-extension@^2.13.8:
+  version "2.13.8"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
+  integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
 redux-mock-store@^1.5.3:
   version "1.5.3"

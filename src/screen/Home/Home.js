@@ -28,7 +28,7 @@ import {
 import PropTypes from 'prop-types';
 
 
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 
 import styles from "./styles";
 import Style from "../../Theme/Style";
@@ -40,18 +40,18 @@ import strings from "localization";
 import getUser from "selectors/UserSelectors";
 import { Card } from "react-native-elements";
 import SwipeablePanel from "rn-swipeable-panel";
-
+import {getMenu} from '../../actions/MenuActions';
 
 
 function Home(props) {
-  
+  const dispatch = useDispatch();
   
   const user = useSelector(state => getUser(state));
   const getMessage = useCallback(
     () => `${strings.homeMessage} ${user && user.name}`,
     [user]
   );
-
+  const getMenus = useCallback(()=>dispatch(getMenu(user.userID)),[dispatch]);
 
   useEffect(() => {
     if (user !== null) {
