@@ -40,17 +40,17 @@ import getUser from "selectors/UserSelectors";
 import { Card } from "react-native-elements";
 import SwipeablePanel from "rn-swipeable-panel";
 import { getMenu } from "../../actions/MenuActions";
-import selectMenu from "../../selectors/MenuSelectors";
+import { selectMenu } from "../../selectors/MenuSelectors";
 
 function Home(props) {
     const dispatch = useDispatch();
-    const getMenus = useCallback(() => dispatch(getMenu(user.userID)), [
-        dispatch
-    ]);
 
     const user = useSelector(state => getUser(state));
     const menu = useSelector(state => selectMenu(state));
 
+    const getMenus = useCallback(() => dispatch(getMenu(user.userID)), [
+        dispatch
+    ]);
     const getMessage = useCallback(
         () => `${strings.homeMessage} ${user && user.name}`,
         [user]
@@ -98,7 +98,9 @@ function Home(props) {
                             key={key}
                             style={styles.item}
                             underlayColor="transparent"
-                            onPress={() => props.navigation.navigate("Detail")}
+                            onPress={() =>
+                                props.navigation.navigate("Detail", { data })
+                            }
                         >
                             <View>
                                 <View style={styles.itemRow}>

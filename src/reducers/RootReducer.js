@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux';
 import error from './ErrorReducer';
 import user from './UserReducer';
-import menuReducer from './MenuReducer';
+import { menuReducer, detailReducer } from './MenuReducer';
 import status from './StatusReducer';
 
 const rootReducer = combineReducers({
   error,
   user,
   status,
-  menuReducer
+  menuReducer,
+  detailReducer
 });
 
 export default rootReducer;

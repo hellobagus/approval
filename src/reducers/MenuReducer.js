@@ -1,10 +1,14 @@
 import { actionTypes } from 'actions/MenuActions';
 
-const initialState = {
+const menuState = {
   menu: [],
 };
 
-const menuReducer = (state = initialState, action) => {
+const detailState = {
+  detail: [],
+};
+
+const menuReducer = (state = menuState, action) => {
   switch (action.type) {
     case actionTypes.MENU_REQUEST:
       return {
@@ -20,4 +24,23 @@ const menuReducer = (state = initialState, action) => {
   }
 };
 
-export default menuReducer;
+const detailReducer = (state = detailState, action) => {
+  switch (action.type) {
+    case actionTypes.DETAIL_REQUEST:
+      return {
+        ...state,
+      };
+    case actionTypes.DETAIL_SUCCESS:
+      return {
+        ...state,
+        detail: action.detail,
+      };
+    default:
+      return state;
+  }
+};
+
+export {
+  menuReducer,
+  detailReducer
+};

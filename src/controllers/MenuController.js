@@ -18,6 +18,18 @@ class MenuController {
     }
   }
 
+  getDetail = async (app_user) => {
+    try {
+      const result = await httpClient.request({
+        url: `/detail/${app_user}`,
+        method: "GET",
+      });
+      return result;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
 }
 
 export default new MenuController();
