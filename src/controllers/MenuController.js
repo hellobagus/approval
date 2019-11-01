@@ -18,10 +18,10 @@ class MenuController {
     }
   }
 
-  getDetail = async (app_user) => {
+  getDetail = async (app_user,modules) => {
     try {
       const result = await httpClient.request({
-        url: `/detail/${app_user}`,
+        url: `/menu/${app_user}/${modules}`,
         method: "GET",
       });
       return result;

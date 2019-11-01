@@ -50,11 +50,11 @@ export const getMenu = (userId) => async (dispatch) => {
   }
 };
 
-export const getDetail = (userId) => async (dispatch) => {
+export const getDetail = (userId,modules) => async (dispatch) => {
   dispatch(detailRequest());
 
   try {
-    const detail = await MenuController.getDetail(userId);
+    const detail = await MenuController.getDetail(userId,modules);
 
     dispatch(detailSuccess(detail));
   } catch (error) {

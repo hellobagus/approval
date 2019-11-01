@@ -44,12 +44,12 @@ import SwipeablePanel from "rn-swipeable-panel";
 
 function Detail(props) {
     const dispatch = useDispatch();
-    const { approval_name, approval_user } = props.navigation.state.params.data;
+    const { approval_name, approval_user, module : modules } = props.navigation.state.params.data;
 
     const user = useSelector(state => getUser(state));
     const detail = useSelector(state => selectDetail(state));
 
-    const getDetails = useCallback(() => dispatch(getDetail(user.userID)), [
+    const getDetails = useCallback(() => dispatch(getDetail(approval_user,modules)), [
         dispatch
     ]);
 
@@ -87,7 +87,7 @@ function Detail(props) {
                                     <View style={styles.itemOverview}>
                                         <View>
                                             <Text style={styles.itemLocation}>
-                                                Approval Name
+                                                {approval_user}
                                             </Text>
 
                                             <Text style={styles.itemPrice}>
