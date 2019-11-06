@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
 
   header:{
     backgroundColor: "#00BCD4",
-    height:80,
+    height:50,
   },
   avatar: {
     width: 130,
@@ -127,8 +127,15 @@ itemPrice: {
   fontSize: 16,
   fontFamily: 'Montserrat-SemiBold',
 },
+
 itemLocation: {
   color: '#999',
+  fontSize: 11,
+  fontFamily: 'Montserrat-Regular',
+  marginBottom: 10,
+},
+itemEntityName: {
+  color: '#00AEEF',
   fontSize: 11,
   fontFamily: 'Montserrat-Regular',
   marginBottom: 10,
@@ -189,13 +196,16 @@ itemDate: {
   color: '#999',
   fontFamily: 'Montserrat-Regular',
   fontSize: 11,
-  textAlign: 'right',
+  textAlign: 'left',
 },
 itemEntity: {
-  color: '#FFFFFF',
+  color: '#00AEEF',
   fontFamily: 'Montserrat-Regular',
-  fontSize: 23,
-  textAlign: 'right',
+  fontSize: 16,
+  alignItems:'center',
+  justifyContent:'center',
+
+
 },
 itemText: {
   color: '#333',
@@ -218,11 +228,10 @@ itemBtn1: {
   backgroundColor: '#00AEEF',
   color: '#333',
   marginTop:8,
-  paddingHorizontal: 10,
-  paddingVertical: 8,
+  padding: 10,
   borderRadius: 180,
   marginRight: 10,
-  width:50,
+  width: 50,
   justifyContent:'center'
 },
 });

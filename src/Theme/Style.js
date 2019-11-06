@@ -47,7 +47,7 @@ export default {
         width: '100%',
         borderBottomWidth: 0,
         borderColor: '#7E8BF5',
-        backgroundColor: '#7E8BF5',
+        backgroundColor: '#00AEEF',
     },
     navigationTransparent: {
         backgroundColor: 'transparent',
@@ -60,6 +60,16 @@ export default {
         backgroundColor: 'transparent',
         width: '100%',
         borderBottomWidth: 0,
+    },
+    bgBotA :{
+        backgroundColor: '#00AEEF',
+
+
+    },
+    textBot :{
+        fontSize : 16,
+        fontWeight : '400'
+
     },
 
 
@@ -96,6 +106,7 @@ export default {
     },
 
     // *** text alignment *** //
+   
     textLeft: {
         textAlign: 'left'
     },

@@ -10,6 +10,11 @@ export const actionTypes = {
   DETAIL_REQUEST: 'DETAIL_REQUEST',
   DETAIL_ERROR: 'DETAIL_ERROR',
   DETAIL_SUCCESS: 'DETAIL_SUCCESS',
+
+  OTORISASI: 'OTORISASI',
+  OTORISASI_REQUEST: 'OTORISASI_REQUEST',
+  OTORISASI_ERROR: 'OTORISASI_ERROR',
+  OTORISASI_SUCCESS: 'OTORISASI_SUCCESS',
 };
 
 const menuRequest = () => ({
@@ -36,7 +41,22 @@ const detailSuccess = detail => ({
 });
 
 const detailError = error => ({
-  type: actionTypes.MENU_ERROR,
+  type: actionTypes.DETAIL_ERROR,
+  error,
+});
+
+
+const otorisasiRequest = () => ({
+  type: actionTypes.OTORISASI,
+});
+
+const otorisasiSuccess = otorisasi => ({
+  type: actionTypes.OTORISASI_SUCCESS,
+  otorisasi,
+});
+
+const otorisasiError = error => ({
+  type: actionTypes.OTORISASI_ERROR,
   error,
 });
 
@@ -59,5 +79,17 @@ export const getDetail = (userId,modules) => async (dispatch) => {
     dispatch(detailSuccess(detail));
   } catch (error) {
     dispatch(detailError(error));
+  }
+};
+
+export const getOtorisasi = (entity,docNo,modules) => async (dispatch) => {
+  dispatch(otorisasiRequest());
+
+  try {
+    const otorisasi = await MenuController.getOtorisasi(entity,docNo,modules);
+
+    dispatch(otorisasiSuccess(otorisasi));
+  } catch (error) {
+    dispatch(otorisasiError(error));
   }
 };

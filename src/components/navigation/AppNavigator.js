@@ -9,6 +9,7 @@ import Profile from '../../screen/Profile';
 
 import Home from '../../screen/Home';
 import Detail from '../../screen/Detail';
+import View from '../../screen/ViewDetail'
 
 import homeIcon from 'assets/ic_home/ic_home.png';
 import settingsIcon from 'assets/ic_settings/ic_settings.png';
@@ -38,31 +39,20 @@ const TabIcon = ({ icon, tintColor }) => (// eslint-disable-line
 const ProfileStack = createStackNavigator({ Profile });
 const HomeStack = createStackNavigator({
   Home,
-  Detail
+  Detail,
+  View
+
 });
-const AppStack = createBottomTabNavigator(
+const AppStack = createStackNavigator(
   {
     Home: HomeStack,
     Profile: ProfileStack,
+    View: View
   },
   {
-    tabBarPosition: 'bottom',
-    tabBarOptions: {
-      activeTintColor: Colors.primary,
-      inactiveTintColor: Colors.gray,
-      style: {
-        backgroundColor: Colors.White,
-      },
-    },
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ tintColor }) => (// eslint-disable-line
-        <TabIcon
-          icon={iconForTab(navigation)}
-          tintColor={tintColor}
-        />
-      ),
-    }),
-  },
+    header: null,
+    headerMode: 'none'
+    }
 );
 
 export default AppStack;

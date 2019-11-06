@@ -2,22 +2,65 @@ import { StyleSheet } from 'react-native';
 import Colors from 'helpers/Colors';
 
 const styles = StyleSheet.create({
+  layoutContent: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+},
+
+homeBg: {
+    flex: 1,
+    paddingBottom: 30,
+},
+
+section: {
+    flex: 1,
+    paddingLeft: 0,
+    alignItems: 'center',
+    width: '100%',
+},
+
+page: {
+    flex: 1,
+    width: '100%',
+},
+
+profile: {
+    flex: 1,
+    width: '100%',
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    paddingTop: 20,
+    backgroundColor: '#00aeef',
+},
+avatar: {
+    marginRight: 10,
+    borderRadius: 34,
+},
+profileName: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 16,
+    color: '#FFF',
+    marginBottom: 3,
+    marginTop: 15,
+},
+profileLocation: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 12,
+    color: '#FFF',
+    opacity: 0.7,
+},
+curve: {
+    flex: 1,
+    width: '100%',
+    height: 70,
+},
 
   header:{
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#00aeef",
     height:200,
   },
-  avatar: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
-    borderWidth: 4,
-    borderColor: "white",
-    marginBottom:10,
-    alignSelf:'center',
-    position: 'absolute',
-    marginTop:130
-  },
+ 
   body:{
     marginTop:40,
   },

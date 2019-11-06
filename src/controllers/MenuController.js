@@ -30,6 +30,18 @@ class MenuController {
     }
   }
 
+  getOtorisasi = async (entity,docNo,modules) => {
+    try {
+      const result = await httpClient.request({
+        url: `/menu/${modules}/${entity.trim()}/${docNo}`,
+        method: "GET",
+      });
+      return result;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
 }
 
 export default new MenuController();

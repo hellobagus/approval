@@ -8,6 +8,10 @@ const detailState = {
   detail: [],
 };
 
+const otorisasiState = {
+  otorisasi: [],
+};
+
 const menuReducer = (state = menuState, action) => {
   switch (action.type) {
     case actionTypes.MENU_REQUEST:
@@ -40,7 +44,24 @@ const detailReducer = (state = detailState, action) => {
   }
 };
 
+const otorisasiReducer = (state = otorisasiState, action) => {
+  switch (action.type) {
+    case actionTypes.OTORISASI_REQUEST:
+      return {
+        ...state,
+      };
+    case actionTypes.OTORISASI_SUCCESS:
+      return {
+        ...state,
+        otorisasi: action.otorisasi,
+      };
+    default:
+      return state;
+  }
+};
+
 export {
   menuReducer,
-  detailReducer
+  detailReducer,
+  otorisasiReducer
 };

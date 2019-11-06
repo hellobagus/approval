@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import error from './ErrorReducer';
 import user from './UserReducer';
-import { menuReducer, detailReducer } from './MenuReducer';
+import { menuReducer, detailReducer,otorisasiReducer } from './MenuReducer';
 import status from './StatusReducer';
 
 const rootReducer = combineReducers({
@@ -9,7 +9,8 @@ const rootReducer = combineReducers({
   user,
   status,
   menuReducer,
-  detailReducer
+  detailReducer,
+  otorisasiReducer
 });
 
 export default rootReducer;

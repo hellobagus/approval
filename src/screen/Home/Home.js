@@ -1,29 +1,30 @@
 import React, { useCallback, useEffect } from "react";
 import {
-    stylesheet,
-    Image,
-    TouchableOpacity,
-    StatusBar,
-    FlatList,
-    ScrollView
+  stylesheet,
+  Image,
+  TouchableOpacity,
+  StatusBar,
+  FlatList,
+  ScrollView,
+  ImageBackground
 } from "react-native";
 import {
-    Container,
-    Header,
-    Content,
-    Button,
-    Icon,
-    Text,
-    Title,
-    Left,
-    Right,
-    Body,
-    Input,
-    Item,
-    Footer,
-    View,
-    FooterTab,
-    Badge
+  Container,
+  Header,
+  Content,
+  Button,
+  Icon,
+  Text,
+  Title,
+  Left,
+  Right,
+  Body,
+  Input,
+  Item,
+  Footer,
+  View,
+  FooterTab,
+  Badge
 } from "native-base";
 import PropTypes from "prop-types";
 
@@ -43,102 +44,96 @@ import { getMenu } from "../../actions/MenuActions";
 import { selectMenu } from "../../selectors/MenuSelectors";
 
 function Home(props) {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const user = useSelector(state => getUser(state));
-    const menu = useSelector(state => selectMenu(state));
+  const user = useSelector(state => getUser(state));
+  const menu = useSelector(state => selectMenu(state));
 
-    const getMenus = useCallback(() => dispatch(getMenu(user.userID)), [
-        dispatch
-    ]);
-    const getMessage = useCallback(
-        () => `${strings.homeMessage} ${user && user.name}`,
-        [user]
-    );
+  const getMenus = useCallback(() => dispatch(getMenu(user.userID)), [
+    dispatch
+  ]);
+  const getMessage = useCallback(
+    () => `${strings.homeMessage}\n\ ${user && user.name}`,
+    [user]
+  );
 
-    useEffect(() => {
-        getMenus();
-    }, []);
+  useEffect(() => {
+    getMenus();
+  }, []);
 
-    useEffect(() => {
-        if (user !== null) {
-            props.navigation.navigate("App");
-        }
-    });
+  useEffect(() => {
+    if (user !== null) {
+      props.navigation.navigate("App");
+    }
+  });
 
-    return (
-        <Container style={Style.bgMain}>
-            <View style={styles.container}>
-                <StatusBar
-                    hidden={false}
-                    backgroundColor="#00BCD4"
-                    translucent={true}
-                />
-                <View style={styles.header}></View>
-                <Image
-                    style={styles.avatar}
-                    source={{
-                        uri:
-                            "https://bootdey.com/img/Content/avatar/avatar6.png"
-                    }}
-                />
-                <View style={styles.body}>
-                    <View style={styles.bodyContent}>
-                        <Text>{getMessage()}</Text>
-                    </View>
-                </View>
+  return (
+    <Container style={Style.bgMain}>
+      <Header style={Style.navigation}>
+        <StatusBar
+          backgroundColor="#00AEEF"
+          animated
+          barStyle="light-content"
+        />
+      </Header>
+      <Content
+        style={Style.layoutInner}
+        contentContainerStyle={Style.layoutContent}
+      >
+        <View style={styles.section}>
+          <View style={styles.profile}>
+            <View>
+              <Text style={styles.profileName}>{getMessage()}</Text>
+              
             </View>
-            <Content
-                style={Style.layoutInner}
-                contentContainerStyle={Style.layoutContent}
-            >
-                <ScrollView>
-                    {menu.map((data, key) => (
-                        <TouchableOpacity
-                            key={key}
-                            style={styles.item}
-                            underlayColor="transparent"
-                            onPress={() =>
-                                props.navigation.navigate("Detail", { data })
-                            }
-                        >
-                            <View>
-                                <View style={styles.itemRow}>
-                                    <View style={styles.itemOverview}>
-                                        <View>
-                                            <Text style={styles.itemLocation}>
-                                                Approval Name
-                                            </Text>
+          </View>
+          <ImageBackground
+            source={require("../../assets/ic_home/property-bg.png")}
+            imageStyle={"cover"}
+            style={styles.curve}
+          />
 
-                                            <Text style={styles.itemPrice}>
-                                                {data.approval_name}
-                                            </Text>
-                                        </View>
-                                    </View>
+          <ScrollView>
+            {menu.map((data, key) => (
+              <TouchableOpacity
+                key={key}
+                style={styles.item}
+                underlayColor="transparent"
+                onPress={() => props.navigation.navigate("Detail", { data })}
+              >
+                <View>
+                  <View style={styles.itemRow}>
+                    <View style={styles.itemOverview}>
+                      <View>
+                        <Text style={styles.itemLocation}>Approval Name</Text>
 
-                                    <View style={styles.itemRight}>
-                                        <Text style={styles.itemDate}>
-                                            Total Count
-                                        </Text>
-                                        <View style={styles.itemBtn1}>
-                                            <Text style={styles.itemEntity}>
-                                                {data.total_doc}
-                                            </Text>
-                                        </View>
-                                    </View>
-                                </View>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
-                </ScrollView>
-            </Content>
-        </Container>
-    );
+                        <Text style={styles.itemPrice}>
+                          {data.approval_name}
+                        </Text>
+                      </View>
+                    </View>
+
+                    <View style={styles.itemRight}>
+                      <Text style={styles.itemDate}>Total Count</Text>
+                      <View style={styles.itemBtn1}>
+                        <Text style={styles.itemEntity}>{data.total_doc}</Text>
+                      </View>
+                    </View>
+                  </View>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+      </Content>
+    </Container>
+  );
 }
 
 Home.navigationOptions = {
-    title: strings.home,
-    header: null
+  title: strings.home,
+  header: null,
+  
 };
 
 export default Home;

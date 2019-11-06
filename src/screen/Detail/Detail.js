@@ -41,6 +41,8 @@ import { getDetail } from "../../actions/MenuActions";
 import { selectDetail } from "../../selectors/MenuSelectors";
 import { Card } from "react-native-elements";
 import SwipeablePanel from "rn-swipeable-panel";
+import numFormat from "../../components/common/numFormat";
+
 
 function Detail(props) {
     const dispatch = useDispatch();
@@ -69,11 +71,27 @@ function Detail(props) {
     });
 
     return (
-        <Container style={Style.bgMain}>
-            <View style={styles.header}></View>
+        <Container style={styles.bgMain}>
+ <Header style={Style.navigation}>
+                <StatusBar backgroundColor="#00aeef" animated barStyle="light-content" />
+
+                <View style={Style.actionBarLeft}>
+                </View>
+                <View style={Style.actionBarMiddle}>
+                    <Text style={Style.actionBarText}>{approval_name.toUpperCase()}</Text>
+                </View>
+                <View style={Style.actionBarRight}>
+                    {/* <Button transparent style={Style.actionBtnRight} onPress={() => {
+                        NavigationService.navigate('MemberPropertyAdd')
+                    }}>
+                        <Icon active name='plus' style={Style.actionIcon} type="FontAwesome" />
+                    </Button> */}
+                </View>
+            </Header>
+
             <Content
-                style={Style.layoutInner}
-                contentContainerStyle={Style.layoutContent}
+                style={styles.layoutInner}
+                contentContainerStyle={styles.layoutContent}
             >
                 <ScrollView>
                     {detail.map((data, key) => (
@@ -81,32 +99,35 @@ function Detail(props) {
                             key={key}
                             style={styles.item}
                             underlayColor="transparent"
+                            onPress={() =>
+                                props.navigation.navigate("View", { data })
+                            }
                         >
                             <View>
-                                <View style={styles.itemRow}>
-                                    <View style={styles.itemOverview}>
-                                        <View>
-                                            <Text style={styles.itemLocation}>
-                                                {approval_user}
-                                            </Text>
-
-                                            <Text style={styles.itemPrice}>
-                                                {approval_name}
-                                            </Text>
+                            <View style={styles.itemRow}>
+                                        <View style={styles.itemOverview}>
+                                            <View>
+                                            <Text style={styles.itemEntityName}>{data.entity_name}</Text>
+                                                <Text style={styles.itemLocation}>Doc No :  {data.doc_no}</Text>
+                                                <Text style={styles.itemLocation}>Staff ID : {data.request_staff_id}</Text>
+                                                <Text style={styles.itemLocation}>Dept : {data.request_dept_name}</Text>
+                                                <Text style={styles.itemPrice}>Rp.{numFormat(data.amount)}</Text>
+                                            </View>
+                                        </View>
+                                        <View style={styles.itemRight}>
+                                            {/* <Text style={styles.itemDate}>{data.doc_date}</Text> */}
+                                            <Text style={styles.itemEntity}>{data.entity_cd}</Text>
                                         </View>
                                     </View>
-
-                                    <View style={styles.itemRight}>
-                                        <Text style={styles.itemDate}>
-                                            Total Count
-                                        </Text>
-                                        <View style={styles.itemBtn1}>
-                                            <Text style={styles.itemEntity}>
-                                                6
-                                            </Text>
+                                    <View style={styles.itemRowIcon}>
+                                        <View style={styles.itemLeft}>
+                                            <View style={styles.itemBtn}>
+                                                <Text style={styles.itemDate}>{data.descs}</Text>
+                                            </View>
+                                           
                                         </View>
+                                       
                                     </View>
-                                </View>
                             </View>
                         </TouchableOpacity>
                     ))}
@@ -118,9 +139,8 @@ function Detail(props) {
 
 Detail.navigationOptions = {
     headerTransparent: true,
-    headerStyle: {
-        marginTop: 30
-    }
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
 };
 
 export default Detail;
