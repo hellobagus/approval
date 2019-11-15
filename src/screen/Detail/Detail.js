@@ -71,7 +71,7 @@ function Detail(props) {
     });
 
     return (
-        <Container style={styles.bgMain}>
+        <Container style={Style.bgMain}>
  <Header style={Style.navigation}>
                 <StatusBar backgroundColor="#00aeef" animated barStyle="light-content" />
 

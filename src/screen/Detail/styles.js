@@ -85,17 +85,12 @@ item: {
   flex: 1,
   width: '90%',
   marginHorizontal: '5%',
-  marginVertical: 20,
-  backgroundColor: '#FFF',
-  borderRadius: 5,
-  elevation: 10,
-  shadowOffset: { 
-      width: 5, 
-      height: 5 
-  },
-  shadowColor: "#42B649",
-  shadowOpacity: 0.1,
-  shadowRadius: 0,
+  marginTop: 30,
+  backgroundColor: 'rgba(18, 18, 18, 0.3)',
+  borderWidth: 1,
+    borderRadius: 10,
+    borderColor: '#ddd',
+ 
 },
 itemImg: {
   marginBottom: 10,
@@ -123,19 +118,12 @@ itemFavorite: {
   fontSize: 24,
 },
 itemPrice: {
-  color: '#666',
-  fontSize: 16,
+  color: '#fff',
+  fontSize: 14,
   fontFamily: 'Montserrat-SemiBold',
 },
-
 itemLocation: {
   color: '#999',
-  fontSize: 11,
-  fontFamily: 'Montserrat-Regular',
-  marginBottom: 10,
-},
-itemEntityName: {
-  color: '#00AEEF',
   fontSize: 11,
   fontFamily: 'Montserrat-Regular',
   marginBottom: 10,
@@ -144,9 +132,8 @@ itemRow: {
   flexDirection: 'row',
   paddingHorizontal: 15,
   paddingBottom: 5,
-  marginBottom: 15,
-  borderBottomWidth: 1,
-  borderColor: '#e7e7e7',
+ 
+  
 },
 itemRowIcon: {
   flexDirection: 'row',
@@ -193,19 +180,21 @@ itemNo: {
   fontSize: 14,
 },
 itemDate: {
-  color: '#999',
+  color: '#f5f5f5',
   fontFamily: 'Montserrat-Regular',
   fontSize: 11,
-  textAlign: 'left',
+  textAlign: 'right',
 },
 itemEntity: {
-  color: '#00AEEF',
+  color: '#FFFFFF',
+  fontFamily: 'Montserrat-Regular',
+  fontSize: 23,
+  textAlign: 'right',
+},
+itemEntityName: {
+  color: '#4acfac',
   fontFamily: 'Montserrat-Regular',
   fontSize: 16,
-  alignItems:'center',
-  justifyContent:'center',
-
-
 },
 itemText: {
   color: '#333',
@@ -216,7 +205,7 @@ itemText: {
 },
 itemBtn: {
   flexDirection: 'row',
-  backgroundColor: '#f0f0f0',
+  backgroundColor: '#121212',
   color: '#333',
   paddingHorizontal: 10,
   paddingVertical: 8,
@@ -225,14 +214,24 @@ itemBtn: {
 },
 itemBtn1: {
   flexDirection: 'row',
-  backgroundColor: '#00AEEF',
-  color: '#333',
+  backgroundColor: '#000',
+  color: '#fff',
   marginTop:8,
-  padding: 10,
+  paddingHorizontal: 10,
+  paddingVertical: 8,
   borderRadius: 180,
   marginRight: 10,
-  width: 50,
-  justifyContent:'center'
+  width:50,
+  justifyContent:'center',
+  shadowColor: "#262833",
+shadowOffset: {
+	width: 0,
+	height: 6,
+},
+shadowOpacity: 0.39,
+shadowRadius: 8.30,
+
+elevation: 13,
 },
 });
 

@@ -53,11 +53,11 @@ profileLocation: {
 curve: {
     flex: 1,
     width: '100%',
-    height: 70,
+    height: 110,
 },
 
   header:{
-    backgroundColor: "#00aeef",
+    backgroundColor: "#00AEEF",
     height:200,
   },
  
@@ -127,17 +127,10 @@ item: {
   flex: 1,
   width: '90%',
   marginHorizontal: '5%',
-  marginVertical: 20,
-  backgroundColor: '#FFF',
+  marginTop: 30,
+  backgroundColor: 'rgba(18, 18, 18, 0.3)',
   borderRadius: 5,
-  elevation: 10,
-  shadowOffset: { 
-      width: 5, 
-      height: 5 
-  },
-  shadowColor: "#42B649",
-  shadowOpacity: 0.1,
-  shadowRadius: 0,
+ 
 },
 itemImg: {
   marginBottom: 10,
@@ -165,9 +158,10 @@ itemFavorite: {
   fontSize: 24,
 },
 itemPrice: {
-  color: '#666',
-  fontSize: 16,
-  fontFamily: 'Montserrat-SemiBold',
+  color: '#4acfac',
+  fontSize: 14,
+  fontFamily: 'Montserrat-Regular',
+  width:200,
 },
 itemLocation: {
   color: '#999',
@@ -179,9 +173,8 @@ itemRow: {
   flexDirection: 'row',
   paddingHorizontal: 15,
   paddingBottom: 5,
-  marginBottom: 15,
-  borderBottomWidth: 1,
-  borderColor: '#e7e7e7',
+ 
+  
 },
 itemRowIcon: {
   flexDirection: 'row',
@@ -248,7 +241,7 @@ itemText: {
 },
 itemBtn: {
   flexDirection: 'row',
-  backgroundColor: '#f0f0f0',
+  backgroundColor: '#262833',
   color: '#333',
   paddingHorizontal: 10,
   paddingVertical: 8,
@@ -257,15 +250,24 @@ itemBtn: {
 },
 itemBtn1: {
   flexDirection: 'row',
-  backgroundColor: '#00AEEF',
-  color: '#333',
+  backgroundColor: '#000',
+  color: '#fff',
   marginTop:8,
   paddingHorizontal: 10,
   paddingVertical: 8,
   borderRadius: 180,
   marginRight: 10,
   width:50,
-  justifyContent:'center'
+  justifyContent:'center',
+  shadowColor: "#262833",
+shadowOffset: {
+	width: 0,
+	height: 6,
+},
+shadowOpacity: 0.39,
+shadowRadius: 8.30,
+
+elevation: 13,
 },
 });
 

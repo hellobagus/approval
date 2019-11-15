@@ -213,7 +213,7 @@ export default {
         backgroundColor: '#7E8BF5',
     },
     bgMain: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#333335',
     },
     bgWhite: {
         backgroundColor: '#fceae5',
