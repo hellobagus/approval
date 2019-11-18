@@ -1,35 +1,17 @@
 import React, { useCallback, useEffect } from "react";
 import {
-    Stylesheet,
-    Image,
-    TouchableOpacity,
-    StatusBar,
-    FlatList,
-    ScrollView
-} from "react-native";
-import {
     Container,
-    Header,
     Content,
     Button,
-    Icon,
     Text,
-    Title,
-    Left,
-    Right,
-    Body,
-    Input,
-    Item,
     Footer,
     View,
     FooterTab,
-    Badge,
     List,
     ListItem,
     Tab,
     Tabs
 } from "native-base";
-import PropTypes from "prop-types";
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -38,22 +20,17 @@ import style from "../../Theme/Style";
 
 import NavigationService from "../../components/navigation/AppNavigator";
 
-import TextStyles from "helpers/TextStyles";
-import strings from "localization";
 import getUser from "selectors/UserSelectors";
 import { getOtorisasi, approve } from "../../actions/MenuActions";
 import { selectOtorisasi } from "../../selectors/MenuSelectors";
-import { Card } from "react-native-elements";
-import SwipeablePanel from "rn-swipeable-panel";
 import numFormat from "../../components/common/numFormat";
-import Status from "../../components/common/Status";
 
 const status_descs = {
-    P : "Pending",
-    R : "Revise",
-    C : "Cancel",
-    A : "Approve"
-}
+    P: "Pending",
+    R: "Revise",
+    C: "Cancel",
+    A: "Approve"
+};
 
 function ViewDetail(props) {
     const dispatch = useDispatch();
@@ -89,10 +66,9 @@ function ViewDetail(props) {
         }
     });
 
-    const submit = () => {
-
-      dispatch(approve('A',props.navigation.state.params.data));
-    }
+    const submit = (type) => {
+        dispatch(approve(type, props.navigation.state.params.data));
+    };
 
     return (
         <Container style={styles.bgMain}>
@@ -211,24 +187,16 @@ function ViewDetail(props) {
                                                             styles.itemEntity
                                                         }
                                                     >
-                                                        {status_descs[data.approval_status]}
+                                                        {
+                                                            status_descs[
+                                                                data
+                                                                    .approval_status
+                                                            ]
+                                                        }
                                                     </Text>
                                                 </View>
                                             </View>
                                         </View>
-
-                                        {/* <View style={Styles.itemRowIcon}>
-                                            <View style={Styles.itemLeft}>
-                                                <View style={Styles.itemBtn}>
-                                                    <Text
-                                                        style={Styles.itemDate}
-                                                    >
-                                                        {item.desc}
-                                                    </Text>
-                                                </View>
-                                            </View>
-                                        </View> */}
-
                                     </View>
                                 </ListItem>
                             </List>
@@ -238,14 +206,20 @@ function ViewDetail(props) {
             </Content>
             <Footer style={style.greyTopLine}>
                 <FooterTab style={style.bgBot}>
-                    <Button
-                        style={style.bgBotA}
-                        // onPress={() => {
-                        //   NavigationService.navigate("MemberPropertyAddPublished");
-                        // }}
-                        onPress={submit}
-                    >
-                        <Text style={[style.textBot,{color : '#fff'}]}>Approval</Text>
+                    <Button style={style.bgBotGreen} onPress={()=>submit("A")}>
+                        <Text style={[style.textBot, { color: "#fff" }]}>
+                            Approve
+                        </Text>
+                    </Button>
+                    <Button style={style.bgBotBlue} onPress={()=>submit("R")}>
+                        <Text style={[style.textBot, { color: "#fff" }]}>
+                            Revise
+                        </Text>
+                    </Button>
+                    <Button style={style.bgBotRed} onPress={()=>submit("C")}>
+                        <Text style={[style.textBot, { color: "#fff" }]}>
+                            Cancel
+                        </Text>
                     </Button>
                 </FooterTab>
             </Footer>

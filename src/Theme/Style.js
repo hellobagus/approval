@@ -63,8 +63,15 @@ export default {
     },
     bgBotA :{
         backgroundColor: '#00AEEF',
-
-
+    },
+    bgBotGreen :{
+        backgroundColor: '#5efc82',
+    },
+    bgBotBlue :{
+        backgroundColor: '#5e92f3',
+    },
+    bgBotRed :{
+        backgroundColor: '#ff6434',
     },
     textBot :{
         fontSize : 16,
