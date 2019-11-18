@@ -21,7 +21,7 @@ const menuReducer = (state = menuState, action) => {
     case actionTypes.MENU_SUCCESS:
       return {
         ...state,
-        menu: action.menu,
+        menu: action.menu.Data,
       };
     default:
       return state;
@@ -37,7 +37,7 @@ const detailReducer = (state = detailState, action) => {
     case actionTypes.DETAIL_SUCCESS:
       return {
         ...state,
-        detail: action.detail,
+        detail: action.detail.Data,
       };
     default:
       return state;
@@ -53,7 +53,7 @@ const otorisasiReducer = (state = otorisasiState, action) => {
     case actionTypes.OTORISASI_SUCCESS:
       return {
         ...state,
-        otorisasi: action.otorisasi,
+        otorisasi: action.otorisasi.Data,
       };
     default:
       return state;

@@ -3,14 +3,18 @@ import httpClient from './HttpClient';
 
 class MenuController {
   constructor() {
-    this.basePath = '/c_auth';
+    this.basePath = '/c_menu';
+    this.appPath = '/c_approval';
   }
 
   getMenu = async (userId) => {
     try {
       const result = await httpClient.request({
-        url: `/menu/${userId}`,
-        method: "GET",
+        url: `${this.basePath}/groupMenu`,
+        method: "POST",
+        data : {
+          approval_user : userId
+        }
       });
       return result;
     } catch (error) {
@@ -18,11 +22,15 @@ class MenuController {
     }
   }
 
-  getDetail = async (app_user,modules) => {
+  getDetail = async (app_user,approval_id) => {
     try {
       const result = await httpClient.request({
-        url: `/menu/${app_user}/${modules}`,
-        method: "GET",
+        url: `${this.basePath}/viewMenu`,
+        method: "POST",
+        data : {
+          approval_user : app_user,
+          approval_id : approval_id
+        }
       });
       return result;
     } catch (error) {
@@ -30,12 +38,33 @@ class MenuController {
     }
   }
 
-  getOtorisasi = async (entity,docNo,modules) => {
+  getOtorisasi = async (entity,docNo) => {
     try {
       const result = await httpClient.request({
-        url: `/menu/${modules}/${entity.trim()}/${docNo}`,
-        method: "GET",
+        url: `${this.basePath}/otorisasi`,
+        method: "POST",
+        data : {
+          entity_cd : entity,
+          doc_no : docNo
+        }
       });
+      return result;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  setApprove = async (status,data) => {
+    try {
+      const result = await httpClient.request({
+        url: `${this.appPath}/updateApproval/${status}`,
+        method: "POST",
+        data : {
+          entity_cd : data.entity_cd,
+          doc_no : data.doc_no,
+        }
+      });
+
       return result;
     } catch (error) {
       return Promise.reject(error);

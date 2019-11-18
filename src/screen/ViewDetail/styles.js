@@ -222,7 +222,7 @@ export default {
   },
   tabGrey: {
     backgroundColor: '#FFF',
-    fontFamily: 'Montserrat-Regular',
+    // fontFamily: 'Montserrat-Regular',
   },
   tabText: {
     fontFamily: 'Montserrat-Regular',

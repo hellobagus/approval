@@ -48,8 +48,7 @@ function Home(props) {
 
   const user = useSelector(state => getUser(state));
   const menu = useSelector(state => selectMenu(state));
-
-  const getMenus = useCallback(() => dispatch(getMenu(user.userID)), [
+  const getMenus = useCallback(() => dispatch(getMenu(user.UserId)), [
     dispatch
   ]);
   const getMessage = useCallback(

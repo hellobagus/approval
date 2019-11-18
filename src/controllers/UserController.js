@@ -9,18 +9,25 @@ class UserController {
   login = async (email, password) => {
     try {
       const result = await httpClient.request({
-        url: `/login`,
+        url: `${this.basePath}/login`,
         method: "POST",
         data: {
-          username : email,
+          email,
           password,
           token : '',
           token_firebase : 'token test',
           device : 'ios',
-          mac : 'mac test'
+          mac : 'mac test',
+          app : "A"
         }
       });
-      return result.user;
+
+      if(result.Error){
+        return Promise.reject(result.Pesan)
+      } else {
+        return result;
+      }
+
     } catch (error) {
       return Promise.reject(error);
     }

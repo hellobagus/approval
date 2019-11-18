@@ -46,12 +46,12 @@ import numFormat from "../../components/common/numFormat";
 
 function Detail(props) {
     const dispatch = useDispatch();
-    const { approval_name, approval_user, module : modules } = props.navigation.state.params.data;
-
+    const { approval_name, approval_user, approval_id } = props.navigation.state.params.data;
+    console.log('props.navigation.state.params.data',props.navigation.state.params.data);
     const user = useSelector(state => getUser(state));
     const detail = useSelector(state => selectDetail(state));
 
-    const getDetails = useCallback(() => dispatch(getDetail(approval_user,modules)), [
+    const getDetails = useCallback(() => dispatch(getDetail(approval_user,approval_id)), [
         dispatch
     ]);
 

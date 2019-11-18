@@ -15,6 +15,11 @@ export const actionTypes = {
   OTORISASI_REQUEST: 'OTORISASI_REQUEST',
   OTORISASI_ERROR: 'OTORISASI_ERROR',
   OTORISASI_SUCCESS: 'OTORISASI_SUCCESS',
+
+  APPROVE: 'APPROVE',
+  APPROVE_REQUEST: 'APPROVE_REQUEST',
+  APPROVE_ERROR: 'APPROVE_ERROR',
+  APPROVE_SUCCESS: 'APPROVE_SUCCESS',
 };
 
 const menuRequest = () => ({
@@ -60,6 +65,20 @@ const otorisasiError = error => ({
   error,
 });
 
+const approveRequest = () => ({
+  type: actionTypes.APPROVE,
+});
+
+const approveSuccess = approve => ({
+  type: actionTypes.APPROVE_SUCCESS,
+  approve,
+});
+
+const approveError = error => ({
+  type: actionTypes.APPROVE_ERROR,
+  error,
+});
+
 export const getMenu = (userId) => async (dispatch) => {
   dispatch(menuRequest());
   try {
@@ -70,11 +89,11 @@ export const getMenu = (userId) => async (dispatch) => {
   }
 };
 
-export const getDetail = (userId,modules) => async (dispatch) => {
+export const getDetail = (userId,approval_id) => async (dispatch) => {
   dispatch(detailRequest());
 
   try {
-    const detail = await MenuController.getDetail(userId,modules);
+    const detail = await MenuController.getDetail(userId,approval_id);
 
     dispatch(detailSuccess(detail));
   } catch (error) {
@@ -91,5 +110,17 @@ export const getOtorisasi = (entity,docNo,modules) => async (dispatch) => {
     dispatch(otorisasiSuccess(otorisasi));
   } catch (error) {
     dispatch(otorisasiError(error));
+  }
+};
+
+export const approve = (status,data) => async (dispatch) => {
+  dispatch(approveRequest());
+
+  try {
+    const approve = await MenuController.setApprove(status,data);
+
+    dispatch(approveSuccess(approve));
+  } catch (error) {
+    dispatch(approveError(error));
   }
 };
