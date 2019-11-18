@@ -62,6 +62,8 @@ class MenuController {
         data : {
           entity_cd : data.entity_cd,
           doc_no : data.doc_no,
+          status,
+          remarks : data.reason_remarks
         }
       });
 

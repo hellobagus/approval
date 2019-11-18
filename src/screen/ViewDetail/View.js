@@ -1,16 +1,21 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { Modal, Dimensions, Alert } from "react-native";
 import {
     Container,
     Content,
     Button,
     Text,
+    Header,
+    Left,
     Footer,
     View,
     FooterTab,
     List,
     ListItem,
     Tab,
-    Tabs
+    Tabs,
+    Icon,
+    Textarea
 } from "native-base";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -47,7 +52,11 @@ function ViewDetail(props) {
 
     const user = useSelector(state => getUser(state));
     const otorisasi = useSelector(state => selectOtorisasi(state));
-    console.log("otorisasi", otorisasi);
+    const [isModalVisible, setModalVisible] = useState(false);
+    const [activeType, setActiveType] = useState("");
+    const data = props.navigation.state.params.data;
+
+    const [remarks, setRemarks] = useState("");
 
     const getOtorisasis = useCallback(
         () => dispatch(getOtorisasi(entity_cd, doc_no, modules)),
@@ -66,13 +75,39 @@ function ViewDetail(props) {
         }
     });
 
-    const submit = (type) => {
-        dispatch(approve(type, props.navigation.state.params.data));
+    const handleRemarks = val => {
+        setRemarks(val);
+        data.reason_remarks = val;
+    };
+
+    const onPressed = type => {
+        setModalVisible(true);
+        if (type == "A") {
+            setRemarks("");
+        }
+        setActiveType(type);
+    };
+
+    const submit = () => {
+        Alert.alert(
+            "Caution !",
+            "Make sure you know what you are doing!",
+            [
+                {
+                    text: "Cancel",
+                    style: "cancel"
+                },
+                {
+                    text: "OK",
+                    onPress: () => dispatch(approve(activeType, data))
+                }
+            ],
+            { cancelable: false }
+        );
     };
 
     return (
         <Container style={styles.bgMain}>
-            <View style={styles.header}></View>
             <Content
                 style={style.layoutInner}
                 contentContainerStyle={style.layoutContent}
@@ -206,23 +241,129 @@ function ViewDetail(props) {
             </Content>
             <Footer style={style.greyTopLine}>
                 <FooterTab style={style.bgBot}>
-                    <Button style={style.bgBotGreen} onPress={()=>submit("A")}>
-                        <Text style={[style.textBot, { color: "#fff" }]}>
-                            Approve
-                        </Text>
-                    </Button>
-                    <Button style={style.bgBotBlue} onPress={()=>submit("R")}>
+                    <Button style={style.bgBotA} onPress={() => onPressed("R")}>
                         <Text style={[style.textBot, { color: "#fff" }]}>
                             Revise
                         </Text>
                     </Button>
-                    <Button style={style.bgBotRed} onPress={()=>submit("C")}>
+                    <Button style={style.bgBotA} onPress={() => onPressed("A")}>
+                        <Text style={[style.textBot, { color: "#fff" }]}>
+                            Approve
+                        </Text>
+                    </Button>
+                    <Button style={style.bgBotA} onPress={() => onPressed("C")}>
                         <Text style={[style.textBot, { color: "#fff" }]}>
                             Cancel
                         </Text>
                     </Button>
                 </FooterTab>
             </Footer>
+            <Modal
+                animationType="slide"
+                transparent={false}
+                visible={isModalVisible}
+                onRequestClose={() => {
+                    setModalVisible(false);
+                }}
+            >
+                <Container style={style.bgBot}>
+                    <Header
+                        style={{
+                            backgroundColor: "#fff",
+                            justifyContent: "flex-start"
+                        }}
+                    >
+                        <Left>
+                            <Icon
+                                name="arrow-left"
+                                style={{ fontSize: 18 }}
+                                type="FontAwesome5"
+                                onPress={() => setModalVisible(false)}
+                            />
+                        </Left>
+                    </Header>
+                    <Content
+                        style={style.layoutInner}
+                        contentContainerStyle={style.layoutContent}
+                    >
+                        <List style={styles.infoTab}>
+                            <ListItem style={styles.infoItem}>
+                                <View>
+                                    {/* <Text style={Styles.infoHeader}>{'Address'.toUpperCase()}</Text> */}
+                                    <Text style={styles.infoDesc}>
+                                        Doc No : {doc_no}
+                                    </Text>
+                                </View>
+                            </ListItem>
+                            <ListItem style={styles.infoItem}>
+                                <View>
+                                    <Text style={styles.infoDesc}>
+                                        Staff ID : {request_staff_id}
+                                    </Text>
+                                </View>
+                            </ListItem>
+                            <ListItem style={styles.infoItem}>
+                                <View>
+                                    <Text style={styles.infoDesc}>
+                                        Dept : {request_dept_name}
+                                    </Text>
+                                </View>
+                            </ListItem>
+                            <ListItem style={styles.infoItem}>
+                                <View>
+                                    <Text style={styles.infoDesc}>
+                                        Description : {descs}
+                                    </Text>
+                                </View>
+                            </ListItem>
+                            <ListItem
+                                style={[styles.infoItem, styles.infoItemLast]}
+                            >
+                                <View>
+                                    <Text style={styles.infoTotal}>
+                                        Rp.{numFormat(amount)}
+                                    </Text>
+                                </View>
+                            </ListItem>
+                            {activeType !== "A" ? (
+                                <ListItem style={styles.infoItem}>
+                                    <View>
+                                        <Text style={styles.infoDesc}>
+                                            Reason Remarks
+                                        </Text>
+                                        <Textarea
+                                            style={[
+                                                styles.infoDesc,
+                                                {
+                                                    width:
+                                                        Dimensions.get("window")
+                                                            .width * 0.9
+                                                }
+                                            ]}
+                                            value={remarks}
+                                            onChangeText={handleRemarks}
+                                        />
+                                    </View>
+                                </ListItem>
+                            ) : null}
+                        </List>
+                    </Content>
+                    <Footer style={style.greyTopLine}>
+                        <FooterTab style={style.bgBot}>
+                            <Button
+                                style={style.bgBotA}
+                                onPress={() => submit("R")}
+                            >
+                                <Text
+                                    style={[style.textBot, { color: "#fff" }]}
+                                >
+                                    {status_descs[activeType]}
+                                </Text>
+                            </Button>
+                        </FooterTab>
+                    </Footer>
+                </Container>
+            </Modal>
         </Container>
     );
 }
