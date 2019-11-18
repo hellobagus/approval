@@ -113,13 +113,18 @@ export const getOtorisasi = (entity,docNo,modules) => async (dispatch) => {
   }
 };
 
-export const approve = (status,data) => async (dispatch) => {
+export const approve = (status,data,UserId) => async (dispatch) => {
   dispatch(approveRequest());
 
   try {
     const approve = await MenuController.setApprove(status,data);
-
+    console.log('approve',approve);
+    alert(approve.Pesan)
     dispatch(approveSuccess(approve));
+
+    const menu = await MenuController.getMenu(UserId);
+    menu.Data[0].total_doc--;
+    dispatch(menuSuccess(menu));
   } catch (error) {
     dispatch(approveError(error));
   }

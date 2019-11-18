@@ -99,7 +99,10 @@ function ViewDetail(props) {
                 },
                 {
                     text: "OK",
-                    onPress: () => dispatch(approve(activeType, data))
+                    onPress: () => {
+                        dispatch(approve(activeType, data,user.UserId))
+                        props.navigation.navigate('Home')
+                    }
                 }
             ],
             { cancelable: false }
