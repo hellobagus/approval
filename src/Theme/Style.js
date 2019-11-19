@@ -10,6 +10,8 @@ export default {
     },
     layoutInner: {
         width: '100%',
+        backgroundColor: '#333335',
+
     },
     layoutCenter: {
         flexGrow: 1,
@@ -63,6 +65,10 @@ export default {
     },
     bgBotA :{
         backgroundColor: '#00AEEF',
+        shadowOpacity: 0.1,
+        elevation: 5,
+        
+
     },
     bgBotGreen :{
         backgroundColor: '#5efc82',
@@ -74,8 +80,8 @@ export default {
         backgroundColor: '#ff6434',
     },
     textBot :{
-        fontSize : 16,
-        fontWeight : '400'
+        fontSize : 12,
+        fontWeight : '300'
 
     },
 
@@ -241,9 +247,9 @@ export default {
         backgroundColor: '#EC87C0',
     },
     bgBot: {
-        backgroundColor: '#FFF',
+        backgroundColor: '#333335',
         borderTopWidth: 0.5,
-        borderColor: '#DDD',
+        borderColor: '#333335',
     },
     bgFilter: {
         backgroundColor: '#FFF',
@@ -360,7 +366,7 @@ export default {
         alignSelf: 'center',
     },
     actionIcon: {
-        fontSize: 18,
+        fontSize: 20,
         color: '#FFF',
     },
     actionBtnRight: {

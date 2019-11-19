@@ -5,7 +5,8 @@ import {
     TouchableOpacity,
     StatusBar,
     FlatList,
-    ScrollView
+    ScrollView,
+
 } from "react-native";
 import {
     Container,

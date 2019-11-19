@@ -206,7 +206,7 @@ export default {
   ownerName: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 16,
-    color: '#333',
+    color: '#fff',
     marginTop: 20,
     marginBottom: 5,
     alignSelf: 'center'
@@ -218,24 +218,32 @@ export default {
   },
 
   tabBorder: {
-    backgroundColor: '#FCC300',
+    backgroundColor: '#4acfac',
   },
   tabGrey: {
-    backgroundColor: '#FFF',
+    backgroundColor: '#333335',
     // fontFamily: 'Montserrat-Regular',
   },
   tabText: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 12,
-    color: '#999',
+    color: '#fff',
   },
   tabTextActive: {
     fontFamily: 'Montserrat-Regular',
     fontSize: 12,
-    color: '#333',
+    color: '#fff',
   },
   infoTab: {
+    flex:1,
     paddingVertical: 20,
+    backgroundColor: '#333335',
+
+  },
+  infoTab2: {
+    backgroundColor: '#333335',
+    paddingVertical: 20,
+    flex: 1
   },
   infoItem: {
     alignItems: 'flex-start',
@@ -243,6 +251,13 @@ export default {
   },
   infoItemLast: {
     borderBottomWidth: 0,
+  },
+  itemEntity: {
+    color: '#4acfac',
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 12
+
+
   },
   infoIcon: {
     marginRight: 10,
@@ -255,12 +270,12 @@ export default {
   },
   infoDesc: {
     fontFamily: 'Montserrat-Regular',
-    color: '#999',
+    color: '#fff',
     fontSize: 12,
   },
   infoTotal: {
     fontFamily: 'Montserrat-Regular',
-    color: '#000',
+    color: '#fff',
     fontSize: 16,
   },
   formBg: {
@@ -414,7 +429,7 @@ export default {
     paddingHorizontal: 20,
   },
   itemLocation: {
-    color: '#999',
+    color: '#fff',
     fontSize: 11,
     fontFamily: 'Montserrat-Regular',
     marginBottom: 10,
@@ -431,6 +446,7 @@ export default {
   itemOverview: {
     flexGrow: 1,
     flexDirection: 'row',
+    color: '#fff'
   },
   itemIcon: {
     color: '#999',

@@ -85,6 +85,34 @@ function Home(props) {
               <Text style={styles.profileName}>{getMessage()}</Text>
               
             </View>
+            <View style={Style.actionBarMiddle}>
+          <Button
+              transparent
+              style={Style.actionBtnRight}
+            >
+              <Icon
+                active
+                name="bell"
+                style={Style.actionIcon}
+                type="FontAwesome"
+              />
+            </Button>
+          </View>
+            <View style={Style.actionBarRight}>
+            
+            <Button
+              transparent
+              style={Style.actionBtnRight}
+              onPress={() => props.navigation.navigate("Profile")}
+            >
+              <Icon
+                active
+                name="user"
+                style={Style.actionIcon}
+                type="FontAwesome"
+              />
+            </Button>
+          </View>
           </View>
           <ImageBackground
             source={require("../../assets/ic_home/property-bg.png")}

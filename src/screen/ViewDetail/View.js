@@ -111,6 +111,7 @@ function ViewDetail(props) {
 
     return (
         <Container style={styles.bgMain}>
+    
             <Content
                 style={style.layoutInner}
                 contentContainerStyle={style.layoutContent}
@@ -191,7 +192,7 @@ function ViewDetail(props) {
                         heading="Otorisasi"
                     >
                         {otorisasi.map((data, key) => (
-                            <List key={key} style={styles.infoTab}>
+                            <List key={key} style={styles.infoTab2}>
                                 <ListItem style={styles.infoItem}>
                                     <View>
                                         <View style={styles.itemRow}>
@@ -216,7 +217,7 @@ function ViewDetail(props) {
                                                 </View>
                                             </View>
                                             <View style={styles.itemRight}>
-                                                <Text style={styles.itemDate}>
+                                                <Text style={styles.itemOverview}>
                                                     Status
                                                 </Text>
                                                 <View style={styles.itemBtn1}>
@@ -244,17 +245,17 @@ function ViewDetail(props) {
             </Content>
             <Footer style={style.greyTopLine}>
                 <FooterTab style={style.bgBot}>
-                    <Button style={style.bgBotA} onPress={() => onPressed("R")}>
+                    <Button bordered style={style.bgBotA} onPress={() => onPressed("R")}>
                         <Text style={[style.textBot, { color: "#fff" }]}>
                             Revise
                         </Text>
                     </Button>
-                    <Button style={style.bgBotA} onPress={() => onPressed("A")}>
+                    <Button style={style.bgYellowDark} onPress={() => onPressed("A")}>
                         <Text style={[style.textBot, { color: "#fff" }]}>
                             Approve
                         </Text>
                     </Button>
-                    <Button style={style.bgBotA} onPress={() => onPressed("C")}>
+                    <Button bordered style={style.bgBotA} onPress={() => onPressed("C")}>
                         <Text style={[style.textBot, { color: "#fff" }]}>
                             Cancel
                         </Text>
@@ -272,14 +273,13 @@ function ViewDetail(props) {
                 <Container style={style.bgBot}>
                     <Header
                         style={{
-                            backgroundColor: "#fff",
                             justifyContent: "flex-start"
                         }}
                     >
                         <Left>
                             <Icon
                                 name="arrow-left"
-                                style={{ fontSize: 18 }}
+                                style={{ fontSize: 18, color:'#fff' }}
                                 type="FontAwesome5"
                                 onPress={() => setModalVisible(false)}
                             />
@@ -376,6 +376,8 @@ ViewDetail.navigationOptions = {
     headerStyle: {
         marginTop: 30
     },
+    headerTintColor: 'white',
+
     tabBarVisible: false
 };
 
