@@ -1,3 +1,4 @@
-import GStyle from './Style';
+import Style from './Style';
+import Colors from './Colors';
 
-export default GStyle;
+export {Style, Colors};
