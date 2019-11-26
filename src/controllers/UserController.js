@@ -23,6 +23,9 @@ class UserController {
         }
       });
 
+      alert(result.Pesan);
+
+
       if(result.Error){
         return Promise.reject(result.Pesan)
       } else {

@@ -56,7 +56,9 @@ export const login = (email, password) => async (dispatch) => {
   try {
     const user = await UserController.login(email, password);
     dispatch(loginSuccess(user.Data));
+    alert("JSON.stringify(user)");
   } catch (error) {
+    alert(error)
     dispatch(loginError(error));
   }
 };
