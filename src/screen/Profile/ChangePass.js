@@ -24,10 +24,10 @@ import getUser from "selectors/UserSelectors";
 export default function ChangePass(props) {
     const dispatch = useDispatch();
     const user = useSelector(state => getUser(state));
-    const logoutUser = useCallback(() => dispatch(logout()), [dispatch]);
 
     const [newPass, setNewPass] = useState("");
     const [conPass, setConPass] = useState("");
+    const [currPass, setCurrPass] = useState("");
 
     useEffect(() => {
         if (user === null) {
@@ -37,7 +37,7 @@ export default function ChangePass(props) {
 
     const savePassword = () =>{
         if(newPass == conPass){
-            dispatch(changePass(user.user,newPass,conPass));
+            dispatch(changePass(user.user,newPass,currPass));
         } else {
             alert("Password Doesn't Match")
         }
@@ -79,6 +79,16 @@ export default function ChangePass(props) {
                         <Label style={[Style.textWhite, Style.textMedium]}>
                             Change Password
                         </Label>
+                    </Item>
+
+                    <Item floatingLabel disabled>
+                        <Label style={[Style.textWhite, Style.textMedium]}>
+                            Old Password
+                        </Label>
+                        <Input
+                            style={[Style.textWhite, Style.textMedium]}
+                            value={currPass} onChangeText={(val)=>setCurrPass(val)}
+                        />
                     </Item>
 
                     <Item floatingLabel disabled>
