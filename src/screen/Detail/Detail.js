@@ -12,6 +12,7 @@ import {
     Text,
     View,
 } from "native-base";
+import Shimmer from '../../components/common/Shimmer';
 
 import { useSelector, useDispatch } from "react-redux";
 
@@ -146,8 +147,28 @@ function Detail(props) {
                             </TouchableOpacity>
                         ))
                     ) : (
-                        <View style={styles.nullList}>
-                            <ActivityIndicator size="large" />
+                        <View>
+                            <View autoRun={true} style={styles.itemShimmer}>
+                                <Shimmer autoRun={true} style={styles.itemText1} />
+                                <Shimmer autoRun={true} style={styles.itemText2} />
+                                <Shimmer autoRun={true} style={styles.itemText3} />
+                                <Shimmer autoRun={true} style={styles.itemText4} />
+                                <Shimmer autoRun={true} style={styles.itemText5} />
+                            </View>
+                            <View autoRun={true} style={styles.itemShimmer}>
+                                <Shimmer autoRun={true} style={styles.itemText1} />
+                                <Shimmer autoRun={true} style={styles.itemText2} />
+                                <Shimmer autoRun={true} style={styles.itemText3} />
+                                <Shimmer autoRun={true} style={styles.itemText4} />
+                                <Shimmer autoRun={true} style={styles.itemText5} />
+                            </View>
+                            <View autoRun={true} style={styles.itemShimmer}>
+                                <Shimmer autoRun={true} style={styles.itemText1} />
+                                <Shimmer autoRun={true} style={styles.itemText2} />
+                                <Shimmer autoRun={true} style={styles.itemText3} />
+                                <Shimmer autoRun={true} style={styles.itemText4} />
+                                <Shimmer autoRun={true} style={styles.itemText5} />
+                            </View>
                         </View>
                     )}
                 </ScrollView>

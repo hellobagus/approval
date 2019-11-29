@@ -90,6 +90,17 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderColor: "#ddd"
     },
+    itemShimmer: {
+        width: dw * 0.9,
+        height : dh * 0.3,
+        marginHorizontal: "5%",
+        marginTop: 30,
+        paddingTop : 10,
+        backgroundColor: "rgba(18, 18, 18, 0.3)",
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: "#ddd"
+    },
     itemImg: {
         marginBottom: 10,
         width: "100%",
@@ -232,6 +243,41 @@ const styles = StyleSheet.create({
         height: dh - dh / 3,
         justifyContent: "center",
         alignItems: "center"
+    },
+    itemText1 : {
+        width : dw * 0.4,
+        height : 25,
+        borderRadius : 10,
+        borderWidth: 1,
+        margin : 10
+    },
+    itemText2 : {
+        width : dw * 0.3,
+        height : 10,
+        borderRadius : 10,
+        borderWidth: 1,
+        margin : 10
+    },
+    itemText3 : {
+        width : dw * 0.45,
+        height : 10,
+        borderRadius : 10,
+        borderWidth: 1,
+        margin : 10
+    },
+    itemText4 : {
+        width : dw * 0.3,
+        height : 10,
+        borderRadius : 10,
+        borderWidth: 1,
+        margin : 10
+    },
+    itemText5 : {
+        width : dw * 0.45,
+        height : 25,
+        borderRadius : 10,
+        borderWidth: 1,
+        margin : 10
     }
 });
 
