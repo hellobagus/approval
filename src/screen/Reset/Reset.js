@@ -19,27 +19,21 @@ import strings from 'localization';
 import { login, actionTypes } from 'actions/UserActions';
 
 function Login(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [newPass, setNewPass] = useState('');
+  const [conPass, setConPass] = useState('');
 
   const user = useSelector(state => getUser(state));
   const isLoading = useSelector(state => isLoadingSelector([actionTypes.LOGIN], state));
   const errors = useSelector(state => errorsSelector([actionTypes.LOGIN], state));
 
   const dispatch = useDispatch();
-  const loginUser = useCallback(() => dispatch(login(email, password)), [email, password, dispatch]);
-  const passwordChanged = useCallback(value => setPassword(value), []);
-  const emailChanged = useCallback(value => setEmail(value), []);
-
+  const resetUser = useCallback(() => dispatch(reset(newPass, conPass)), [newPass, conPass, dispatch]);
+  
   useEffect(() => {
-    if (user !== null) {
-      console.log(user.isResetPass);
-      if(user.isResetPass == 1){
-        props.navigation.navigate('Reset');
-      } else {
-        props.navigation.navigate('App');
-      }
-    }
+    console.log(user);
+    // if (user !== null) {
+    //   props.navigation.navigate('App');
+    // }
   });
 
   return (
@@ -49,27 +43,26 @@ function Login(props) {
      <Image source={require('../../assets/images1.png')}/>
       <View style={[styles.formContainer]}>
         <Text style={TextStyles.fieldTitle}>
-          {strings.email}
+          {"New Password"}
         </Text>
         <TextField
-          placeholder={strings.email}
-          onChangeText={emailChanged}
-          value={email}
+          placeholder={"New Password"}
+          onChangeText={setNewPass}
+          value={newPass}
         />
         <Text style={TextStyles.fieldTitle}>
-          {strings.password}
+          {"Confirm Password"}
         </Text>
         <TextField
-          placeholder={strings.password}
-          value={password}
-          onChangeText={passwordChanged}
+          placeholder={"Confirm Password"}
+          value={conPass}
+          onChangeText={setConPass}
           secureTextEntry
         />
         <ErrorView errors={errors} />
         <Button
-          // onPress={()=>props.navigation.navigate("Reset")}
-          onPress={loginUser}
-          title={isLoading ? strings.loading : strings.login}
+          onPress={resetUser}
+          title={isLoading ? strings.loading : "Reset"}
         />
       </View>
     </View>

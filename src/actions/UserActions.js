@@ -7,6 +7,11 @@ export const actionTypes = {
   LOGIN_SUCCESS: 'LOGIN_SUCCESS',
   LOGOUT: 'LOGOUT',
   
+  RESETPASS: 'RESETPASS',
+  RESETPASS_REQUEST: 'RESETPASS_REQUEST',
+  RESETPASS_ERROR: 'RESETPASS_ERROR',
+  RESETPASS_SUCCESS: 'RESETPASS_SUCCESS',
+
   CHANGEPASS: 'CHANGEPASS',
   CHANGEPASS_REQUEST: 'CHANGEPASS_REQUEST',
   CHANGEPASS_ERROR: 'CHANGEPASS_ERROR',
@@ -26,6 +31,20 @@ const loginError = error => ({
 
 const loginSuccess = user => ({
   type: actionTypes.LOGIN_SUCCESS,
+  user,
+});
+
+const resetPassRequest = () => ({
+  type: actionTypes.RESETPASS_REQUEST,
+});
+
+const resetPassError = error => ({
+  type: actionTypes.RESETPASS_ERROR,
+  error,
+});
+
+const resetPassSuccess = user => ({
+  type: actionTypes.RESETPASS_SUCCESS,
   user,
 });
 
@@ -56,10 +75,24 @@ export const login = (email, password) => async (dispatch) => {
   try {
     const user = await UserController.login(email, password);
     dispatch(loginSuccess(user.Data));
+    console.log(user);
     alert("JSON.stringify(user)");
   } catch (error) {
     alert(error)
     dispatch(loginError(error));
+  }
+};
+
+export const reset = (newPass, conPass) => async (dispatch) => {
+  dispatch(resetPassRequest());
+  try {
+    const user = await UserController.reset(newPass, conPass);
+    dispatch(resetPassSuccess(user.Data));
+    console.log(user);
+    alert("JSON.stringify(user)");
+  } catch (error) {
+    alert(error)
+    dispatch(resetPassError(error));
   }
 };
 
