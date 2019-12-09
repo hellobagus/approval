@@ -37,6 +37,24 @@ class UserController {
     }
 
   }
+  resetPassword = async (conPass, newPass,email) => {
+    try {
+      const result = await httpClient.request({
+        url: `${this.basePath}/Resetpass`,
+        
+        method: "POST",
+        data : {
+          conPass : conPass,
+          newPass : newPass,
+          email: email
+     
+        }
+      })
+      return result;      
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
 
   changePassword = async (email,pass,conpass) => {
     try {
