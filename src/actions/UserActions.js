@@ -83,15 +83,13 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const reset = (newPass, conPass) => async (dispatch) => {
+export const reset = (newPass, conPass,email) => async (dispatch) => {
   dispatch(resetPassRequest());
   try {
-    const user = await UserController.reset(newPass, conPass);
+    const user = await UserController.reset(newPass, conPass,email);
     dispatch(resetPassSuccess(user.Data));
     console.log(user);
-    alert("JSON.stringify(user)");
   } catch (error) {
-    alert(error)
     dispatch(resetPassError(error));
   }
 };

@@ -27,7 +27,7 @@ function Login(props) {
   const errors = useSelector(state => errorsSelector([actionTypes.LOGIN], state));
 
   const dispatch = useDispatch();
-  const resetUser = useCallback(() => dispatch(reset(newPass, conPass)), [newPass, conPass, dispatch]);
+  const resetUser = useCallback(() => dispatch(reset(newPass, conPass,user.user)), [newPass, conPass, dispatch]);
   
   useEffect(() => {
     console.log(user);
